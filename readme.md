@@ -92,6 +92,9 @@ npx playwright test tests/careers.spec.ts
 * Newsletter signup (positive & negative scenarios)
 * Content validation (recruiter email, company address)
 
+## Test Report
+![Report](screenshots/report.png)
+
 ---
 
 ## Notes
