@@ -1,4 +1,3 @@
-// pages/careers.page.ts
 import { expect, type Locator, type Page } from '@playwright/test';
 
 export class CareersPage {
@@ -25,7 +24,6 @@ export class CareersPage {
     this.submit = page.getByRole('button',{name: 'Submit'})
     this.header = page.locator('#page-header')
   }
-
 
   async clickJoinUsButton(){
     await this.joinUsButton.click()
@@ -66,6 +64,5 @@ export class CareersPage {
   async verifyAddress(address:string){
     await expect(this.page.getByText(address)).toBeVisible()
   }
-
 
 }
