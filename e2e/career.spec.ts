@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { CareersPage } from '../pom/careersPage';
+import  TestData from '../data/testData.json';
 
 test.describe('Careers Page Tests', () => {
   let careersPage:CareersPage;
@@ -45,36 +46,36 @@ test.describe('Careers Page Tests', () => {
   });
 
   test('should successfully sign up to newsletter with valid data', async ({  }) => { 
-    await careersPage.enterFirstName('Rizni')
-    await careersPage.enterLastName('Rizvi')
-    await careersPage.enterEmail('rizni@lk.com')
+    await careersPage.enterFirstName(TestData.firstName)
+    await careersPage.enterLastName(TestData.lastName)
+    await careersPage.enterEmail(TestData.email)
     await careersPage.clickSubmit()
     await expect(careersPage.succesFullMessage).toHaveText('Thanks for signing up to our newsletter.')
   });
 
   test('validates required first name field', async ({  }) => { 
-    await careersPage.enterLastName('Rizvi')
-    await careersPage.enterEmail('rizni@lk.com')
+    await careersPage.enterLastName(TestData.lastName)
+    await careersPage.enterEmail(TestData.email)
     await careersPage.clickSubmit()
     await expect(careersPage.requiredFieldErrorMessage).toHaveText('Please complete this required field.')
   });
 
   test('validates required last name field', async ({  }) => { 
-    await careersPage.enterFirstName('Rizni')
-    await careersPage.enterEmail('rizni@lk.com')
+    await careersPage.enterFirstName(TestData.firstName)
+    await careersPage.enterEmail(TestData.email)
     await careersPage.clickSubmit()
     await expect(careersPage.requiredFieldErrorMessage).toHaveText('Please complete this required field.')
   });
 
   test('validates required email field', async ({  }) => { 
-    await careersPage.enterFirstName('Rizni')
-    await careersPage.enterLastName('Rizvi')
+    await careersPage.enterFirstName(TestData.firstName)
+    await careersPage.enterLastName(TestData.lastName)
     await careersPage.clickSubmit()
     await expect(careersPage.requiredFieldErrorMessage).toHaveText('Please complete this required field.')
   });
 
   test('should show error for invalid email format ', async ({  }) => { 
-    await careersPage.enterEmail('rizni')
+    await careersPage.enterEmail(TestData.firstName)
     await expect(careersPage.requiredFieldErrorMessage).toHaveText('Email must be formatted correctly.')
   });
 
@@ -84,7 +85,7 @@ test.describe('Careers Page Tests', () => {
   });
 
   test('company address is accurate', async ({ }) => { 
-   await expect(careersPage.addressContainer.filter({hasText:"1257 Hay Street, West Perth, 6005"})).toBeVisible()
+   await expect(careersPage.addressContainer.filter({hasText:TestData.address})).toBeVisible()
   });
 
 })
