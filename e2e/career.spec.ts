@@ -35,7 +35,7 @@ test.describe('Careers Page Tests', () => {
   })
 
   test('should display correct recruiter email', async ({  }) => { 
-    await careersPage.verifyRecruiterEmail('recruit@artrya.com')
+   await expect(careersPage.emailAdress).toHaveText("recruit@artrya.com")
   });
 
   test('contact us today button navigation', async ({ page }) => { 
@@ -49,42 +49,42 @@ test.describe('Careers Page Tests', () => {
     await careersPage.enterLastName('Rizvi')
     await careersPage.enterEmail('rizni@lk.com')
     await careersPage.clickSubmit()
-    await careersPage.verifySignupNewsletterSuccessMessage('Thanks for signing up to our newsletter.')
+    await expect(careersPage.succesFullMessage).toHaveText('Thanks for signing up to our newsletter.')
   });
 
   test('validates required first name field', async ({  }) => { 
     await careersPage.enterLastName('Rizvi')
     await careersPage.enterEmail('rizni@lk.com')
     await careersPage.clickSubmit()
-    await careersPage.verifyFieldValidationErrorMessage('Please complete this required field.')
+    await expect(careersPage.requiredFieldErrorMessage).toHaveText('Please complete this required field.')
   });
 
   test('validates required last name field', async ({  }) => { 
     await careersPage.enterFirstName('Rizni')
     await careersPage.enterEmail('rizni@lk.com')
     await careersPage.clickSubmit()
-    await careersPage.verifyFieldValidationErrorMessage('Please complete this required field.')
+    await expect(careersPage.requiredFieldErrorMessage).toHaveText('Please complete this required field.')
   });
 
   test('validates required email field', async ({  }) => { 
     await careersPage.enterFirstName('Rizni')
     await careersPage.enterLastName('Rizvi')
     await careersPage.clickSubmit()
-    await careersPage.verifyFieldValidationErrorMessage('Please complete this required field.')
+    await expect(careersPage.requiredFieldErrorMessage).toHaveText('Please complete this required field.')
   });
 
   test('should show error for invalid email format ', async ({  }) => { 
     await careersPage.enterEmail('rizni')
-    await careersPage.verifyFieldValidationErrorMessage('Email must be formatted correctly')
+    await expect(careersPage.requiredFieldErrorMessage).toHaveText('Email must be formatted correctly.')
   });
 
   test('validates all required fields', async ({  }) => { 
     await careersPage.clickSubmit()
-    await careersPage.verifyFieldValidationErrorMessage('Please complete all required fields.')
+    await expect(careersPage.allFeildsRequiredErrorMessage).toHaveText('Please complete all required fields.')
   });
 
   test('company address is accurate', async ({ }) => { 
-    await careersPage.verifyAddress('1257 Hay Street, West Perth, 6005')
+   await expect(careersPage.addressContainer.filter({hasText:"1257 Hay Street, West Perth, 6005"})).toBeVisible()
   });
 
 })

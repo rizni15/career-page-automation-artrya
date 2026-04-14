@@ -4,33 +4,39 @@ export class CareersPage {
   readonly page: Page;
   readonly logo: Locator;
   readonly joinUsButton: Locator;
-  readonly emptyMessage: Locator
-  readonly contactUstoday: Locator
-  readonly firstName: Locator
-  readonly lastName: Locator
-  readonly email: Locator
-  readonly submit: Locator
-  readonly header: Locator
+  readonly emptyMessage: Locator;
+  readonly contactUstoday: Locator;
+  readonly firstName: Locator;
+  readonly lastName: Locator;
+  readonly email: Locator;
+  readonly submit: Locator;
+  readonly header: Locator;
+  readonly succesFullMessage: Locator;
+  readonly requiredFieldErrorMessage: Locator;
+  readonly allFeildsRequiredErrorMessage: Locator;
+  readonly addressContainer: Locator;
+  readonly emailAdress: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.logo = page.getByRole('link', { name: 'artrya-logo-white' });
-    this.joinUsButton = page.getByRole('link', { name: 'Join Us'})
+    this.joinUsButton = page.getByRole('link', { name: 'Join Us'});
     this.emptyMessage = page.getByText('No results found.');
-    this.contactUstoday = page.getByRole('link',{name: 'Contact us today'})
-    this.firstName = page.getByLabel('First Name')
-    this.lastName = page.getByLabel('Last Name')
-    this.email = page.getByLabel('email')
-    this.submit = page.getByRole('button',{name: 'Submit'})
-    this.header = page.locator('#page-header')
+    this.contactUstoday = page.getByRole('link',{name: 'Contact us today'});
+    this.firstName = page.getByLabel('First Name');
+    this.lastName = page.getByLabel('Last Name');
+    this.email = page.getByLabel('email');
+    this.submit = page.getByRole('button',{name: 'Submit'});
+    this.header = page.locator('#page-header');
+    this. succesFullMessage= page.locator('.submitted-message');
+    this.requiredFieldErrorMessage = page.locator('label.hs-error-msg');
+    this.allFeildsRequiredErrorMessage = page.getByRole('list').filter({ hasText: 'Please complete all required' })
+    this.addressContainer = page.locator('.w-text-h');
+    this.emailAdress = page.locator('a[href^="mailto:"]');
   }
 
   async clickJoinUsButton(){
     await this.joinUsButton.click()
-  }
-
-  async verifyRecruiterEmail(recruiterEmail:string){
-    await expect(this.page.getByText(recruiterEmail)).toBeVisible()
   }
 
   async clickContactUsTodayButton(){
@@ -51,18 +57,6 @@ export class CareersPage {
 
   async clickSubmit(){
     await this.submit.click()
-  }
-
-  async verifySignupNewsletterSuccessMessage(successMesasge:string){
-   await expect(this.page.getByText(successMesasge)).toBeVisible()
-  }
-
-  async verifyFieldValidationErrorMessage(message:string){
-   await expect(this.page.getByText(message)).toBeVisible()
-  }
-
-  async verifyAddress(address:string){
-    await expect(this.page.getByText(address)).toBeVisible()
   }
 
 }
