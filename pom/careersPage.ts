@@ -24,18 +24,7 @@ export class CareersPage {
   readonly valuesHeading: Locator;
   readonly cultureHeading: Locator;
   readonly staffImage: Locator;
-  readonly rndLeadImage: Locator;
-  readonly rndLeadTitle: Locator;
-  readonly medImgAssitantImage: Locator;
-  readonly medImgAssitantTitle: Locator;
-  readonly dataScientistImage: Locator;
-  readonly dataScientistTitle: Locator;
   readonly dataScientistDescription: Locator;
-  readonly innovationSection: Locator;
-  readonly innovationTitle: Locator;
-  readonly innovationList: Locator;
-  readonly movePatientsLowCostTitle: Locator;
-  readonly MinimizeERPatientAdmission: Locator;
   readonly groupPhoto: Locator;
   readonly requestDemoLinkFooter: Locator;
   readonly contactUsLinkFooter: Locator;
@@ -79,40 +68,11 @@ export class CareersPage {
     this.valuesHeading = page.getByText("Artryan value", { exact: true });
     this.cultureHeading = page.getByText("Artryan culture", { exact: true });
     this.staffImage = page.locator('img[src*="careers-collage.webp"]');
-    this.rndLeadImage = page.locator('img[src*="carrers-research-develop"]');
-    this.rndLeadTitle = page.getByRole("heading", {
-      name: "Research & Development Lead",
-      exact: true,
-    });
-    this.medImgAssitantImage = page.locator(
-      'img[src*="carrers-medical-imaging"]',
-    );
-    this.medImgAssitantTitle = page.getByRole("heading", {
-      name: "Medical Imaging Research Assistant",
-      exact: true,
-    });
-    this.dataScientistImage = page.locator(
-      'img[src*="carrers-senior-data-scientist"]',
-    );
-    this.dataScientistTitle = page.getByRole("heading", {
-      name: "Senior Data Scientist – Cardiovascular",
-    });
     this.dataScientistDescription = page
       .locator(".wpb_column")
       .filter({ hasText: "Senior Data Scientist – Cardiovascular" })
       .locator("p")
       .nth(3);
-    this.innovationSection = page
-      .locator(".w-iconbox")
-      .filter({ hasText: "Innovation" });
-    this.innovationTitle = this.innovationSection.locator(".w-iconbox-title");
-    this.innovationList = this.innovationSection.locator("ul li");
-    this.movePatientsLowCostTitle = page
-      .locator(".w-iconbox")
-      .filter({ hasText: "Move patients to low-cost care settings" });
-    this.MinimizeERPatientAdmission = page
-      .locator(".w-iconbox")
-      .filter({ hasText: "Minimize the ER carousel of patient readmissions" });
     this.groupPhoto = page.locator('img[src*="careers-collage-2"]');
     this.requestDemoLinkFooter = page.getByRole("link", {
       name: "Request a Demo",
@@ -172,12 +132,8 @@ export class CareersPage {
       await expect(this.page.getByRole("link", { name: text })).toBeVisible();
     }
   }
-  verifyValuesAndCultureDescription(valuesDescription: string) {
+  getValuesAndCultureDescription(valuesDescription: string) {
     return this.page.getByText(valuesDescription);
-  }
-
-  verifyEmployeeTestimonials(testMonials: string) {
-    return this.page.getByText(testMonials);
   }
 
   // A dynamic locator that finds the entire row containing a specific title

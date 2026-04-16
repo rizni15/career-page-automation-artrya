@@ -1,5 +1,5 @@
-import { test, expect } from "../base.ts";
-import TestData from "../data/testData.json";
+import { test, expect } from "../../base.ts";
+import TestData from "../../data/testData.json";
 
 test.describe("Careers Page Tests", () => {
   test.beforeEach(async ({ page }) => {
@@ -70,20 +70,18 @@ test.describe("Careers Page Tests", () => {
     await expect(page).toHaveTitle("Contact Us – Artrya");
   });
 
-  test("atryan value & culture sections displays correct heading and description ", async ({
-    careersPage
+  test("atryan value & culture sections displays correct heading and description", async ({
+    careersPage,
   }) => {
     //values
     await expect(careersPage.valuesHeading).toBeVisible();
     await expect(
-      careersPage.verifyValuesAndCultureDescription(TestData.valuesDescription),
+      careersPage.getValuesAndCultureDescription(TestData.valuesDescription),
     ).toBeVisible();
     //cultures
     await expect(careersPage.cultureHeading).toBeVisible();
     await expect(
-      careersPage.verifyValuesAndCultureDescription(
-        TestData.culturesDescription,
-      ),
+      careersPage.getValuesAndCultureDescription(TestData.culturesDescription),
     ).toBeVisible();
   });
 
@@ -95,7 +93,15 @@ test.describe("Careers Page Tests", () => {
     );
   });
 
-  test("employee testomonials are loading", async ({ careersPage, page }) => {
+  test("employee testimonials are loading", async ({ careersPage, page }) => {
+    /**
+    SUMMARY:
+    This test validates the "Employee Testimonials" section of the Careers page.
+    It ensures that each employee card displays:
+    The correct job Title.
+    The expected Profile Image.
+    The accurate Testimonial Text defined in TestData.
+    */
     const employees = [
       {
         title: "Research & Development Lead",
@@ -130,7 +136,7 @@ test.describe("Careers Page Tests", () => {
      * It ensures that each Value Section contains:
      * 1. A visible Icon (SVG).
      * 2. The correct Title text.
-     * 3. The expected list of Bullet Points (Value Statements) defined in our TestData.
+     * 3. The expected list of Bullet Points (Value Statements) defined in TestData.
      */
     const companyValues = [
       {
@@ -160,7 +166,6 @@ test.describe("Careers Page Tests", () => {
       const valueBox = careersPage.getValuesContainer(value.title);
 
       // 1. Verify the visual icon is present inside the box
-      // We target the SVG specifically to avoid strict-mode conflicts with the wrapper div
       await expect(
         careersPage.getValuesIcon(value.title),
         `Icon for "${value.title}" should be visible`,
@@ -182,7 +187,7 @@ test.describe("Careers Page Tests", () => {
   });
 
   test("comapany group picture is loading", async ({ careersPage }) => {
-    await expect(careersPage.groupPhoto).toBeVisible(); 
+    await expect(careersPage.groupPhoto).toBeVisible();
   });
 
   test("careers page shows empty state when no jobs are available", async ({
@@ -244,7 +249,7 @@ test.describe("Careers Page Tests", () => {
     );
   });
 
-  test("should show error for invalid email format ", async ({
+  test("should show error for invalid email format", async ({
     careersPage,
   }) => {
     await careersPage.enterEmail(TestData.firstName);
@@ -302,9 +307,7 @@ test.describe("Careers Page Tests", () => {
     await expect(page).toHaveTitle("Artrya Ltd | LinkedIn");
   });
 
-  test("regulatory disclaimer content is accurate", async ({
-    careersPage,
-  }) => {
+  test("regulatory disclaimer content is accurate", async ({ careersPage }) => {
     const disclaimer = careersPage.getRegulatoryDisclaimer(
       TestData.regulatoryDisclaimer,
     );
