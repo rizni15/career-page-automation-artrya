@@ -1,0 +1,43 @@
+{
+  "recruiterEmail": "recruit@artrya.com",
+  "firstName": "Rizni",
+  "lastName": "Rizvi",
+  "email": "riz@lk.com",
+  "address": "1257 Hay Street, West Perth, 6005",
+  "valuesDescription": "We see heart disease in a new way, using data-driven solutions to infiltrate current cardiology care models and assist cardiovascular diagnosis. Using AI, we support the prevention of heart attack.",
+  "culturesDescription": "We hire the best people – people who are committed to what we seek to achieve, who act with integrity, are innovative, put excellence into everything they do, have a relentless customer focus, and respect and collaborate with others. We acknowledge the strength of diverse teams. Hiring people from diverse backgrounds with unique experiences and fostering a dynamic team environment are the keys to our success. We focus on hiring capable people and letting them shine.",
+  "rndLeadTestimonial": "Machine learning with access to huge, expert-labeled datasets has unlimited potential. It is a privilege to use these tools on such an important problem – especially with a group of fantastic people. The culture is one of the highlights of working here – partly due, I believe, to a solid foundation built on integrity and curiosity. This has not changed, even when the company has grown by a factor of 10.",
+  "medicalImageAssitantTestimonial": "Artrya is a collaborative work environment, with brainstorming and problem solving happening constantly between all team members. Often, a conversation will strike up involvement from all, everyone rolling their chairs closer to the action – sharing ideas and expertise to keep moving forward. It is passionate problem solving; we know that our work directly feeds into our product that will be used to save lives. We all know someone impacted by coronary artery disease, so working here is immensely rewarding as we get to make a real difference. Also, you can walk into the office at any time of the day and the space is filled with the wonderful aroma of coffee",
+  "dataScientistDescription": "Artrya is full of innovation. It is an AI-centric company, and therefore a perfect place for Data Scientists. As an Artryan and a Data Scientist, I develop algorithms that make the detection of heart diseases easier.",
+  "innovationPoints": [
+    "We create new ideas to benefit humanity",
+    "We create world-class solutions to hard problems",
+    "We challenge prevailing thought and develop new ideas",
+    "We are agile, keep things simple and thrive on change"
+  ],
+  "movePatientstoLowCostPoints": [
+    "We want to learn rapidly",
+    "We actively contribute",
+    "We make connections others miss",
+    "We seek to understand our customers’ needs and help them better serve their patients"
+  ],
+  "minimizetERPatientRreadmissionsPoints": [
+    "We hold ourselves to high standards in all we do",
+    "We inspire others with the quality of our work",
+    "We care intensely about our clients, their patients and delivering success",
+    "We are optimistic and confident"
+  ],
+  "integrityPoints": [
+    "We respect others and are true to our word",
+    "We question actions that are inconsistent with our values",
+    "We are known for our candor, authenticity, transparency and humility",
+    "We admit our mistakes freely and openly"
+  ],
+  "DeliveryPoints": [
+    "We focus on getting stuff done",
+    "We meet commitments, no matter how minor they seem",
+    "We believe our behavior says far more than our words",
+    "We work to make our colleagues better"
+  ],
+  "regulatoryDisclaimer": "Salix Coronary Anatomy is listed on the Australian Register of Therapeutic Goods, ID 347719. Salix Central USA product (K243038) is cleared in the USA. For the availability of Salix in The EU, UK, or other jurisdictions, please contact us."
+}
